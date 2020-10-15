@@ -3,9 +3,12 @@ apiVersion: apps/v1
 metadata:
   name: nfs-client-provisioner
   namespace: nfs-storage
+  labels:
+    app: nfs-client-provisioner
 spec:
   selector:
-    app: nfs-client-provisioner
+    matchLabels:
+      app: nfs-client-provisioner
   replicas: 2
   strategy:
     type: RollingUpdate
