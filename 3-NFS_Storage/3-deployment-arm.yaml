@@ -4,6 +4,8 @@ metadata:
   name: nfs-client-provisioner
   namespace: nfs-storage
 spec:
+  selector:
+    app: nfs-client-provisioner
   replicas: 2
   strategy:
     type: RollingUpdate
@@ -12,8 +14,6 @@ spec:
       labels:
         app: nfs-client-provisioner
     spec:
-      selector:
-        app: nfs-client-provisioner
       serviceAccount: nfs-client-provisioner
       containers:
         - name: nfs-client-provisioner
